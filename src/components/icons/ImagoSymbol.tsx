@@ -8,7 +8,7 @@ interface ImagoSymbolProps {
     styles?: CSSProperties
 }
 
-const ImagoSymbol = ({ className, name, size = "18px", styles }: ImagoSymbolProps) => {
+const ImagoSymbol = ({ className, name, size = "16px", styles }: ImagoSymbolProps) => {
     return (
         <i style={{ fontSize: size, ...styles }} className={cn("f7-icons", className)}>{name}</i>
     )

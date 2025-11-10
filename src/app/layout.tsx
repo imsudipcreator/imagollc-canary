@@ -3,6 +3,8 @@ import 'framework7-icons';
 import { type Metadata } from "next";
 import { TRPCReactProvider } from "@/trpc/react";
 import NavbarWrapper from "./_components/NavbarWrapper";
+import { NavbarProvider } from "./_contexts/NavbarContext";
+import FooterWrapper from "./_components/FooterWrapper";
 
 export const metadata: Metadata = {
   title: "Imago (India)",
@@ -73,8 +75,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="">
         <TRPCReactProvider>
-          <NavbarWrapper />
-          {children}
+          <NavbarProvider>
+            <NavbarWrapper />
+            {children}
+            <FooterWrapper/>
+          </NavbarProvider>
         </TRPCReactProvider>
       </body>
     </html>
