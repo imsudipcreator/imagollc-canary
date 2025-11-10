@@ -6,6 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { blocksData } from "./_data/blocks-data";
 
+/**
+ * Renders the home page layout including the suggestion bar, hero, key content sections (Build/Launch/Evolve and App Development), a responsive blocks grid built from `blocksData`, and footer notes.
+ *
+ * @returns The React element tree for the home page.
+ */
 export default async function Home() {
   return (
     <HydrateClient>
