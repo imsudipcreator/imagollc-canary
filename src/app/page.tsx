@@ -25,9 +25,9 @@ export default async function Home() {
             {/* <video src={"/assets/home/hero.webm"} className="w-full md:h-auto h-full object-cover absolute" autoPlay loop muted /> */}
             <Image src="/assets/home/hero.webp" alt="hero" width={1080} height={720} className="md:w-full h-full object-cover absolute" />
             <div className="absolute h-full w-full flex items-center justify-center z-1 gap-1.5">
-              <h1 style={{ fontFamily: "Beau Rivage" }} className="font-medium  md:text-6xl text-6xl">Team</h1>
+              <h1 className="font-medium text-beaurivage md:text-6xl text-6xl">Team</h1>
               <ImagoIcon size={25} className="mt-1.5" />
-              <h1 style={{ fontFamily: "BenchNine" }} className="md:text-5xl text-5xl font-medium ">Imago</h1>
+              <h1 className="md:text-5xl text-5xl font-medium text-benchnine">Imago</h1>
             </div>
           </section>
 

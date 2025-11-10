@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Beau+Rivage&family=BenchNine:wght@300;400;700&display=swap");
 @import url("./fonts.css");
 
-
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -55,7 +54,7 @@
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
-  --primary: #007AFF;
+  --primary: #007aff;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -135,4 +134,12 @@
 
 .text-body {
   font-family: "SFProText", sans-serif;
+}
+
+.text-beaurivage {
+  font-family: "Beau Rivage", cursive;
+}
+
+.text-benchnine {
+  font-family: "BenchNine", sans-serif;
 }
