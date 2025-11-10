@@ -17,12 +17,12 @@ export const blocksData : Block[] = [
   {
     id: 1,
     header: (
-      <h1 className="text-3xl md:text-4xl font-semibold text-black pb-3">
+      <h1 className="text-3xl md:text-4xl font-medium text-black pb-3">
         Web Development
       </h1>
     ),
     subText:
-      "From sleek landing pages to full-scale platforms — we create responsive, SEO-friendly websites that impress and perform.",
+      "From landing pages to full platforms, we build responsive, high-performing websites that stand out",
     bgImage: <Image src={"/assets/home/web-design-tools.webp"} alt="block-bg" width={200} height={200}/>,
     bgColor: "#F5F5F7",
     btnGroup: (
@@ -43,12 +43,12 @@ export const blocksData : Block[] = [
   {
     id: 2,
     header: (
-      <h1 className="text-3xl md:text-4xl font-semibold text-black pb-3">
+      <h1 className="text-3xl md:text-4xl font-medium text-black pb-3">
         AI Integration
       </h1>
     ),
     subText:
-      "We bring intelligence to your systems with cutting-edge AI. From smart search to chatbots — if it can think, we can build it.",
+      "We power your systems with AI from smart search to chatbots, if it can think, we can build it.",
     bgImage: <Image src={"/assets/home/ai-models.webp"} alt="block-bg" width={400} height={200}/>,
     bgColor: "#F5F5F7",
     btnGroup: (
@@ -64,12 +64,12 @@ export const blocksData : Block[] = [
   {
     id: 3,
     header: (
-      <h1 className="text-3xl md:text-4xl font-semibold text-white pb-3">
+      <h1 className="text-3xl md:text-4xl font-medium text-white pb-3">
         Imago One
       </h1>
     ),
     subText:
-      "A simple, all-in-one subscription to unlock full access to the Imago ecosystem — including premium apps, tools, and AI features.",
+      "One simple subscription unlocks the full Imago ecosystem, premium apps, tools, and AI features included.",
     bgImage: <Image src={"/assets/home/imago-one-gradient.webp"} alt="block-bg" width={400} height={200} style={{ width: 400, height: 'auto' }} />,
     bgColor: "#000000",
     btnGroup: (
@@ -87,8 +87,8 @@ export const blocksData : Block[] = [
     header: (
       <div className="flex items-center justify-center pb-3 gap-1">
         {/* <Image src={ImagoIcon as StaticImageData} alt='imago-icon' className='size-6' /> */}
-        <ImagoIcon className='size-6' />
-        <h1 className="text-3xl md:text-4xl font-semibold text-black text-center">
+        <ImagoIcon className='md:size-6 size-5' />
+        <h1 className="text-3xl md:text-4xl font-medium text-black text-center">
           Creator
         </h1>
       </div>

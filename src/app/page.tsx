@@ -11,7 +11,7 @@ export default async function Home() {
     <HydrateClient>
       <main className="w-full min-h-screen flex flex-col justify-start bg-white">
         {/** Suggestion Section */}
-        <div className="w-full flex items-center justify-center md:text-sm text-body gap-1 md:font-medium py-2 px-3 bg-black/6">
+        <div className="w-full flex items-center justify-center md:text-sm text-body gap-1 md:font-medium py-2 px-3 ">
           <p className="text-black/80">Connect to imago for better experience.</p>
           <Link href={"/sign-in"} className="flex items-center justify-center text-primary group">
             <p className="group-hover:underline">Connect</p>
@@ -35,7 +35,7 @@ export default async function Home() {
 
           <section className="w-full min-h-svh flex flex-col items-center justify-start md:pt-24 gap-2 bg-[#F2F2F7] py-12">
             <p className="md:text-5xl text-3xl font-semibold">Build. Launch. Evolve.</p>
-            <p className="md:text-2xl text-xl md:w-[52%] w-[80%] text-center">At Imago, we specialize in crafting powerful digital experiences that push boundaries and drive results.</p>
+            <p className="md:text-2xl text-xl md:w-[52%] w-[80%] text-center">At Imago, we craft bold digital experiences <br /> that inspire and perform.</p>
             <Image src={"/assets/home/browser-mockup-sm.webp"} alt="browser-mockup" width={768} height={1080} style={{ width: 900, height: 'auto' }} priority className="mt-6 md:hidden" />
             <Image id="browser-mockup" src={"/assets/home/browser-mockup.webp"} alt="browser-mockup" width={900} height={800} style={{ width: 900, height: 'auto' }} className="mt-6 hidden md:flex" />
             <div className="flex items-center gap-4">
@@ -54,8 +54,8 @@ export default async function Home() {
 
 
           <section className="w-full min-h-svh flex flex-col items-center justify-center gap-2 py-12 bg-linear-to-b from-[#D4EAF7] via-[#E6F1F7] to-[#FDFFFE]">
-            <h1 className="md:text-5xl text-3xl font-semibold">App Development</h1>
-            <p className="md:text-2xl text-xl md:w-[54%] w-[80%] text-center">We build fast, secure, and scalable mobile apps tailored to your unique needs — from idea to deployment.</p>
+            <h1 className="md:text-[45px] text-3xl font-semibold">App Development</h1>
+            <p className="md:text-2xl text-xl md:w-[54%] w-[80%] text-center">We craft fast, secure, and scalable apps, <br className="not-md:hidden" /> made just for you.</p>
             <Image src={"/assets/home/apps-float.webp"} width={300} height={300} alt="apps-float" style={{ width: 300, height: 'auto' }} />
             <div className="flex items-center gap-4">
               <Button variant={'imago'}>
@@ -76,22 +76,25 @@ export default async function Home() {
             {
               blocksData.map((block) => (
                 <div
-                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                   key={block.id}
                   style={{
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                     backgroundColor: block.bgColor,
                   }}
-                  className={`md:w-[49%] shrink-0 relative w-full md:h-screen max-h-[700px]  flex flex-col items-center justify-center md:pt-12 py-16 gap-2`}
+                  className={`md:w-[49%] shrink-0 relative w-full md:h-screen max-h-[700px]  flex flex-col items-center justify-center md:pt-12 py-16 gap-[5px]`}
                 >
-                  {block.header}
-                  <p
-                    className={`md:text-xl text-lg text-center px-6 md:px-16 ${block.bgColor === "#000000" ? "text-white" : "text-black"
-                      }`}
-                  >
-                    {block.subText}
-                  </p>
-                  {block.bgImage}
+
+                  <div className="flex flex-col items-center max-w-lg">
+                    {block.header}
+                    <p
+                      className={`md:text-xl text-lg text-center px-8 md:px-16 ${block.bgColor === "#000000" ? "text-white" : "text-black"
+                        }`}
+                    >
+                      {block.subText}
+                    </p>
+                  </div>
+                  <div className="mt-7">
+                    {block.bgImage}
+                  </div>
                   {block.btnGroup}
                 </div>
               ))
