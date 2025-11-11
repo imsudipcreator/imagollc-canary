@@ -1,7 +1,8 @@
 // components/ui/AnimatedHamburger.tsx
 "use client";
 
-import { cn } from "@/lib/utils";
+
+import { cn } from "@/utils";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef, type CSSProperties } from "react";

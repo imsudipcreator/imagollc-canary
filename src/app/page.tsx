@@ -21,7 +21,7 @@ export default async function Home() {
 
         <div className="w-full flex flex-col gap-4 items-center">
           {/** Hero Section */}
-          <section className="w-full relative h-dvh overflow-clip text-black">
+          <section className="w-full relative h-svh overflow-clip text-black">
             {/* <video src={"/assets/home/hero.webm"} className="w-full md:h-auto h-full object-cover absolute" autoPlay loop muted /> */}
             <Image src="/assets/home/hero.webp" alt="hero" width={1080} height={720} className="md:w-full h-full object-cover absolute" />
             <div className="absolute h-full w-full flex items-center justify-center z-1 gap-1.5">
@@ -35,7 +35,7 @@ export default async function Home() {
 
           <section className="w-full min-h-svh flex flex-col items-center justify-start md:pt-24 gap-2 bg-[#F2F2F7] py-12">
             <p className="md:text-5xl text-3xl font-semibold">Build. Launch. Evolve.</p>
-            <p className="md:text-2xl text-xl md:w-[52%] w-[80%] text-center">At Imago, we craft bold digital experiences <br /> that inspire and perform.</p>
+            <p className="md:text-2xl text-xl md:w-[52%] w-[80%] text-center">At Imago, we craft bold digital experiences <br className="not-md:hidden" /> that inspire and perform.</p>
             <Image src={"/assets/home/browser-mockup-sm.webp"} alt="browser-mockup" width={768} height={1080} style={{ width: 900, height: 'auto' }} priority className="mt-6 md:hidden" />
             <Image id="browser-mockup" src={"/assets/home/browser-mockup.webp"} alt="browser-mockup" width={900} height={800} style={{ width: 900, height: 'auto' }} className="mt-6 hidden md:flex" />
             <div className="flex items-center gap-4">
