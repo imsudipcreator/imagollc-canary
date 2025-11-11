@@ -1,4 +1,4 @@
-type Route = {
+export type Route = {
   name: string;
   path: string;
   children?: Route[];
@@ -6,7 +6,7 @@ type Route = {
 
 export const ROUTES: Route[] = [
   {
-    name: "Home",
+    name: "Discover",
     path: "/",
   },
   {

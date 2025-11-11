@@ -3,7 +3,7 @@
 import ImagoIcon from "@/components/icons/ImagoIcon"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { NAVIGATION_SECTIONS } from "@/constants/routes"
-import { cn } from "@/lib/utils"
+import { cn } from "@/utils"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
