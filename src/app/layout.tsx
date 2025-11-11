@@ -1,10 +1,24 @@
 import "@/styles/globals.css";
+import { TRPCReactProvider } from "@/trpc/react";
 import 'framework7-icons';
 import { type Metadata } from "next";
-import { TRPCReactProvider } from "@/trpc/react";
+import { Beau_Rivage, BenchNine } from "next/font/google";
+import FooterWrapper from "./_components/FooterWrapper";
 import NavbarWrapper from "./_components/NavbarWrapper";
 import { NavbarProvider } from "./_contexts/NavbarContext";
-import FooterWrapper from "./_components/FooterWrapper";
+
+const beauRivage = Beau_Rivage({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-beau",
+});
+
+const benchnine = BenchNine({
+  weight: ["300", "400", "700"],
+  subsets: ["latin"],
+  variable: "--font-bench",
+});
+
 
 export const metadata: Metadata = {
   title: "Imago (India)",
@@ -73,12 +87,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="">
+      <body className={`${beauRivage.variable} ${benchnine.variable}`}>
         <TRPCReactProvider>
           <NavbarProvider>
             <NavbarWrapper />
             {children}
-            <FooterWrapper/>
+            <FooterWrapper />
           </NavbarProvider>
         </TRPCReactProvider>
       </body>

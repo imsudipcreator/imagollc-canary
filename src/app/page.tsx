@@ -6,6 +6,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { blocksData } from "./_data/blocks-data";
 
+/**
+ * Home page of the website. This page serves as a landing page for Imago and
+ * provides an overview of the company's services and work.
+ *
+ * The page is divided into several sections, each highlighting a different aspect
+ * of Imago's work. The sections are designed to be visually appealing and easy to
+ * understand, with clear headings and concise text.
+ *
+ * The page also includes a call to action, encouraging users to visit Imago's
+ * work page or to get in touch with the company.
+ *
+ */
 export default async function Home() {
   return (
     <HydrateClient>

@@ -1,6 +1,15 @@
 import ImagoSymbol from "@/components/icons/ImagoSymbol"
 import Link from "next/link"
 
+/**
+ * A Next.js page that displays a 404 error message to the user.
+ *
+ * The page displays a heading that says "The page you're looking for can't be found."
+ * Below the heading, it displays a link to the sitemap that says "See the sitemap"
+ * with a chevron right icon on the right side.
+ *
+ * @returns A JSX element representing the 404 error page.
+ */
 const NotFound = () => {
     return (
         <div className='min-h-[500px]  w-full flex flex-col items-center justify-center gap-4'>

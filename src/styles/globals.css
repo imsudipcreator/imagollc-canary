@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Beau+Rivage&family=BenchNine:wght@300;400;700&display=swap");
 @import url("./fonts.css");
 
 @import "tailwindcss";
@@ -126,6 +125,7 @@
   body {
     @apply bg-background text-foreground;
   }
+
   /* button,
   a {
     @apply transition active:bg-blue-100 dark:active:bg-blue-900;
@@ -147,9 +147,9 @@
 }
 
 .text-beaurivage {
-  font-family: "Beau Rivage";
+  font-family: var(--font-beau);
 }
 
 .text-benchnine {
-  font-family: "BenchNine";
+  font-family: var(--font-bench);
 }
