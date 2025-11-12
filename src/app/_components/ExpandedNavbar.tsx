@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef } from "react";
 import { useNavbar } from "../_contexts/NavbarContext";
+import AccountPeek from "./AccountPeek";
 
 const ExpandedNavbar = () => {
     const router = useRouter()
@@ -166,7 +167,6 @@ const ExpandedNavbar = () => {
     }, [open])
 
     useEffect(() => {
-        console.log("useEffect running"); // debug
         if (typeof window === "undefined") return; //ssr safe
 
 
@@ -212,14 +212,7 @@ const ExpandedNavbar = () => {
 
                 {/** Account Center */}
                 {
-                    open === 'account' && (
-                        <div ref={bgDivRef} className="lg:w-full lg:max-w-244 w-[77%]">
-                            <div className="w-full flex items-center gap-2 h-14 mb-4">
-                                <ImagoSymbol className="text-[#707070]" name="person_crop_circle" size="30px" />
-                                <p className='flex-1 border-none outline-none placeholder:text-2xl placeholder:font-semibold text-2xl font-semibold  bg-transparent'>Account</p>
-                            </div>
-                        </div>
-                    )
+                    open === 'account' && <AccountPeek ref={bgDivRef} />
                 }
 
                 {/** Menu */}
