@@ -1,9 +1,10 @@
+
 import ImagoIcon from "@/components/icons/ImagoIcon";
-import ImagoSymbol from "@/components/icons/ImagoSymbol";
 import { Button } from "@/components/ui/button";
 import { HydrateClient } from "@/trpc/server";
 import Image from "next/image";
 import Link from "next/link";
+import SuggestionBar from "./_components/SuggestionBar";
 import { blocksData } from "./_data/blocks-data";
 
 /**
@@ -18,19 +19,12 @@ import { blocksData } from "./_data/blocks-data";
  * work page or to get in touch with the company.
  *
  */
-export default async function Home() {
+export default function Home() {
+
   return (
     <HydrateClient>
       <main className="w-full min-h-screen flex flex-col justify-start bg-white">
-        {/** Suggestion Section */}
-        <div className="w-full flex items-center justify-center md:text-sm text-body gap-1 md:font-medium py-2 px-3 ">
-          <p className="text-black/80">Connect to imago for better experience.</p>
-          <Link href={"/sign-in"} className="flex items-center justify-center text-primary group">
-            <p className="group-hover:underline">Connect</p>
-            <ImagoSymbol name="chevron_right" size="12px" />
-          </Link>
-        </div>
-
+        <SuggestionBar />
         <div className="w-full flex flex-col gap-4 items-center">
           {/** Hero Section */}
           <section className="w-full relative h-svh overflow-clip text-black">
