@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { TRPCReactProvider } from "@/trpc/react";
+import { ClerkProvider } from '@clerk/nextjs';
 import 'framework7-icons';
 import { type Metadata } from "next";
 import { Beau_Rivage, BenchNine } from "next/font/google";
@@ -86,16 +87,18 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${beauRivage.variable} ${benchnine.variable}`}>
-        <TRPCReactProvider>
-          <NavbarProvider>
-            <NavbarWrapper />
-            {children}
-            <FooterWrapper />
-          </NavbarProvider>
-        </TRPCReactProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${beauRivage.variable} ${benchnine.variable}`}>
+          <TRPCReactProvider>
+            <NavbarProvider>
+              <NavbarWrapper />
+              {children}
+              <FooterWrapper />
+            </NavbarProvider>
+          </TRPCReactProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
