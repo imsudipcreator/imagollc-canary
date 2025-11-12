@@ -20,14 +20,30 @@ export const ROUTES: Route[] = [
   {
     name: "intelligence",
     path: "/intelligence",
+    children: [
+      { name: "Imago Chat", path: "/intelligence/chat" },
+      { name: "Imago Community", path: "/intelligence/community" },
+      { name: "Imago Vision", path: "/intelligence/vision" },
+      { name: "Imago Playground", path: "/intelligence/playground" },
+    ],
   },
   {
     name: "Developer",
     path: "/developer",
+    children: [
+      { name: "Imago Creator", path: "/developer/icreator" },
+      { name: "Imago Editor", path: "/developer/ieditor" },
+      { name: "Documentation", path: "/developer/docs" },
+    ],
   },
   {
     name: "Support",
     path: "/support",
+    children: [
+      { name: "Contact Us", path: "/support/contact" },
+      { name: "FAQ", path: "/support/faq" },
+      { name: "Report a Bug", path: "/support/bug" },
+    ],
   },
   {
     name: "Legal",

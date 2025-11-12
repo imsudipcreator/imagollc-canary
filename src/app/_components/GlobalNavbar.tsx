@@ -26,6 +26,7 @@ const GlobalNavbar = () => {
   }
 
 
+
   useGSAP(() => {
     const target = closeSubRouteRef?.current
     if (!target) return
@@ -55,7 +56,7 @@ const GlobalNavbar = () => {
 
   }, [openSubRoutes, open])
   return (
-    <header className={cn("w-full flex items-center justify-center h-11 text-foreground hover:text-black sticky top-0 z-100 bg-background/80 backdrop-blur-2xl")}>
+    <header className={cn("w-full flex items-center justify-center h-11 text-foreground hover:text-black sticky top-0 z-100  backdrop-blur-2xl", open ? "bg-background" : "bg-background/70")}>
       {/** Desktop Navbar */}
       <nav className="max-w-244 w-full flex items-center justify-between h-full not-lg:hidden">
         <Link href={'/'} className="cursor-pointer">

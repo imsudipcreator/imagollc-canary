@@ -1,11 +1,17 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+
 import ImagoSymbol from "@/components/icons/ImagoSymbol"
 import { useUser } from "@clerk/nextjs"
 import { forwardRef } from "react"
 
 const AccountPeek = forwardRef<HTMLDivElement>((_, ref) => {
     const { isLoaded, isSignedIn, user } = useUser()
-    if (!isLoaded || !isSignedIn || !user) return null
+    if (!isLoaded || !isSignedIn || !user) {
+        return (
+            <div ref={ref} className="lg:w-full lg:max-w-244 w-[77%]">
+                <h1>{"You aren't signed in"}</h1>
+            </div>
+        )
+    }
 
     return (
         <div ref={ref} className="lg:w-full lg:max-w-244 w-[77%]">
