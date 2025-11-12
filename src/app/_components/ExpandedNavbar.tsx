@@ -1,5 +1,5 @@
 import ImagoSymbol from "@/components/icons/ImagoSymbol";
-import { ROUTES, type Route } from "@/constants/routes";
+import { QUICK_LINKS, ROUTES, type Route } from "@/constants/routes";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/utils";
 import { useGSAP } from "@gsap/react";
@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef } from "react";
 import { useNavbar } from "../_contexts/NavbarContext";
 import AccountPeek from "./AccountPeek";
+import ResultSection from "./ResultSection";
 
 const ExpandedNavbar = () => {
     const router = useRouter()
@@ -24,7 +25,22 @@ const ExpandedNavbar = () => {
     const routeDivRef = useRef<HTMLDivElement>(null)
     const routeElemsRef = useRef<HTMLButtonElement[]>([])
 
+
+    const hoveredNavElemRefs = useRef<HTMLElement[]>([]);
+
     const navMap: Record<string, { label: string, data: Route | undefined }> = {
+        intelligence: {
+            label: 'Intelligence Routes',
+            data: ROUTES.find((route) => route.name === 'intelligence'),
+        },
+        developer: {
+            label: 'Developer Routes',
+            data: ROUTES.find((route) => route.name === 'Developer'),
+        },
+        support: {
+            label: 'Support Routes',
+            data: ROUTES.find((route) => route.name === 'Support'),
+        },
         legal: {
             label: 'Legal Routes',
             data: ROUTES.find((route) => route.name === 'Legal'),
@@ -156,6 +172,7 @@ const ExpandedNavbar = () => {
     }, [openSubRoutes]);
 
     useGSAP(() => {
+        if (!routeElemsRef.current) return
         // Animate in all route buttons with a stagger
         gsap.from(routeElemsRef.current, {
             y: -10,
@@ -166,9 +183,20 @@ const ExpandedNavbar = () => {
         })
     }, [open])
 
+
+    useGSAP(() => {
+        gsap.fromTo(hoveredNavElemRefs.current, {
+            opacity: 0,
+            duration: 0.5,
+            // stagger: 0.1
+        }, {
+            opacity: 1
+        })
+    }, [currentNav])
+
+
     useEffect(() => {
         if (typeof window === "undefined") return; //ssr safe
-
 
         if (window.innerWidth <= 1024) {
             document.body.style.overflow = open ? 'hidden' : 'auto'
@@ -181,8 +209,26 @@ const ExpandedNavbar = () => {
     }, [open]);
 
 
+    useEffect(() => {
+        if (typeof window === "undefined") return; // SSR safety
+
+        const handleScroll = (e: Event) => {
+            console.log("scroll event:", e);
+            if (open) setOpen(null)
+        };
+
+        if (window.innerWidth > 768 && open) {
+            window.addEventListener("scroll", handleScroll);
+        }
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [open]);
+
+
     return (
-        <div ref={translucentDivRef} className="w-full backdrop-blur-4xl h-dvh bg-background/60 absolute z-10 opacity-0">
+        <div ref={translucentDivRef} className="w-full backdrop-blur-2xl h-[200dvh] bg-background/60 fixed z-10 opacity-0">
             <div ref={opaqueDivRef} onMouseLeave={() => isMobile ? null : setOpen(null)} className="w-full bg-background fixed z-10 flex items-start justify-center overflow-hidden">
                 {/** Search Bar */}
                 {
@@ -202,8 +248,14 @@ const ExpandedNavbar = () => {
                                 </button>
                             </div>
                             {
-                                query.length > 0 && (
+                                query.length > 0 ? (
                                     <p>{query} not found</p>
+                                ) : (
+                                    <ResultSection
+                                        results={QUICK_LINKS}
+                                        handleClick={() => setOpen(null)}
+                                        title="Quick Links"
+                                    />
                                 )
                             }
                         </div>
@@ -256,8 +308,15 @@ const ExpandedNavbar = () => {
                 {
                     currentNav?.data && (
                         <div ref={bgDivRef} className="lg:w-full lg:max-w-244 w-[77%] flex flex-col gap-2">
-                            <p className={cn('text-muted-foreground text-sm')}>{currentNav.label}</p>
+                            <p
+                                ref={(el) => {
+                                    if (el) hoveredNavElemRefs.current[0] = el
+                                }}
+                                className={cn('text-muted-foreground text-sm')}>{currentNav.label}</p>
                             <Link
+                                ref={(el) => {
+                                    if (el) hoveredNavElemRefs.current[1] = el
+                                }}
                                 // ref={currentNav?.refs(1)}
                                 href={currentNav.data?.path}
                                 className={cn('text-3xl font-semibold')}
@@ -267,6 +326,9 @@ const ExpandedNavbar = () => {
                             {/* <div className="flex flex-col gap-1 mt-2"> */}
                             {currentNav.data?.children?.map((route, i) => (
                                 <Link
+                                    ref={(el) => {
+                                        if (el) hoveredNavElemRefs.current[i + 2] = el
+                                    }}
                                     // ref={currentNav?.refs(i + 2)} 
                                     href={route.path ?? '/'}
                                     className={cn('font-semibold text-2xl')}
