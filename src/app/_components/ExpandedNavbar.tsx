@@ -14,7 +14,7 @@ import ResultSection from "./ResultSection";
 const ExpandedNavbar = () => {
     const router = useRouter()
     const isMobile = useIsMobile()
-    const { open, setOpen, openSubRoutes, setOpenSubRoutes, query, setQuery } = useNavbar()
+    const { open, setOpen, openSubRoutes, setOpenSubRoutes, query, setQuery, closeNavs } = useNavbar()
     const translucentDivRef = useRef<HTMLDivElement>(null);
     const opaqueDivRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -228,7 +228,7 @@ const ExpandedNavbar = () => {
 
 
     return (
-        <div ref={translucentDivRef} className="w-full backdrop-blur-2xl h-[200dvh] bg-background/60 fixed z-10 opacity-0">
+        <div ref={translucentDivRef} className="w-full backdrop-blur-3xl h-[200dvh] bg-background/60 fixed z-100 opacity-0">
             <div ref={opaqueDivRef} onMouseLeave={() => isMobile ? null : setOpen(null)} className="w-full bg-background fixed z-10 flex items-start justify-center overflow-hidden">
                 {/** Search Bar */}
                 {
@@ -290,11 +290,11 @@ const ExpandedNavbar = () => {
                                 }
                             </div>
 
-                            <div ref={subRouteDivRef} className={cn('absolute w-full h-full flex flex-col items-start gap-2.5 px-12 py-6 opacity-0 bg-white font-semibold text-2xl pointer-events-none')}>
+                            <div ref={subRouteDivRef} className={cn('absolute w-full h-full flex flex-col items-start gap-2.5 px-12 py-6 opacity-0 bg-background font-semibold text-2xl pointer-events-none')}>
                                 <p className='text-[1rem] text-muted-foreground'>{`${activeRoute?.name} Routes`}</p>
-                                <Link href={activeRoute?.path ?? "/"} className='text-3xl'>{`Explore ${activeRoute?.name}`}</Link>
+                                <Link onClick={closeNavs} href={activeRoute?.path ?? "/"} className='text-3xl'>{`Explore ${activeRoute?.name}`}</Link>
                                 {activeRoute?.children?.map((subRoute) => (
-                                    <Link key={subRoute.path} href={subRoute.path}>
+                                    <Link onClick={closeNavs} key={subRoute.path} href={subRoute.path}>
                                         {subRoute.name}
                                     </Link>
                                 ))}

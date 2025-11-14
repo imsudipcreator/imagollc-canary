@@ -5,13 +5,21 @@ import { cn } from "@/utils"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import Link from "next/link"
-import { useRef } from "react"
+import { usePathname } from "next/navigation"
+import { useEffect, useRef, useState } from "react"
 import { useNavbar } from "../_contexts/NavbarContext"
 import AnimatedHamburger from "./AnimatedHamburger"
 
 const GlobalNavbar = () => {
+  const pathname = usePathname();
   const { open, setOpen, openSubRoutes, setOpenSubRoutes, closeNavs } = useNavbar()
+  const [hasLocalNav, setHasLocalNav] = useState(false)
   const closeSubRouteRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    const localNavRoutes = ["/intelligence"]
+    setHasLocalNav(localNavRoutes.some((route) => pathname.includes(route)))
+  }, [pathname])
 
   function handleMouseHover(name: string) {
     const hoveredRoute = ROUTES.find((item) => item.name === name)
@@ -56,7 +64,11 @@ const GlobalNavbar = () => {
 
   }, [openSubRoutes, open])
   return (
-    <header className={cn("w-full flex items-center justify-center h-11 text-foreground hover:text-black sticky top-0 z-100  backdrop-blur-2xl", open ? "bg-background" : "bg-background/70")}>
+    <header className={cn(
+      "w-full flex items-center justify-center h-11 text-foreground hover:text-black  top-0 z-100  backdrop-blur-2xl",
+      open ? "bg-background" : "bg-background/70",
+      hasLocalNav ? "static bg-background" : "sticky"
+    )}>
       {/** Desktop Navbar */}
       <nav className="max-w-244 w-full flex items-center justify-between h-full not-lg:hidden">
         <Link href={'/'} className="cursor-pointer">
