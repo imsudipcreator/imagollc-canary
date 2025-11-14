@@ -1,3 +1,4 @@
+import { GlobalThemeWrapper } from "@/components/GlobalThemeWrapper";
 import "@/styles/globals.css";
 import { TRPCReactProvider } from "@/trpc/react";
 import { ClerkProvider } from '@clerk/nextjs';
@@ -88,17 +89,19 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={`${beauRivage.variable} ${benchnine.variable}`}>
-          <TRPCReactProvider>
-            <NavbarProvider>
-              <NavbarWrapper />
-              {children}
-              <FooterWrapper />
-            </NavbarProvider>
-          </TRPCReactProvider>
-        </body>
-      </html>
+      <GlobalThemeWrapper>
+        <html lang="en">
+          <body className={`${beauRivage.variable} ${benchnine.variable}`}>
+            <TRPCReactProvider>
+              <NavbarProvider>
+                <NavbarWrapper />
+                {children}
+                <FooterWrapper />
+              </NavbarProvider>
+            </TRPCReactProvider>
+          </body>
+        </html>
+      </GlobalThemeWrapper>
     </ClerkProvider>
   );
 }

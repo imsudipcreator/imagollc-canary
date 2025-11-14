@@ -21,10 +21,10 @@ export const ROUTES: Route[] = [
     name: "intelligence",
     path: "/intelligence",
     children: [
-      { name: "Imago Chat", path: "/intelligence/chat" },
-      { name: "Imago Community", path: "/intelligence/community" },
-      { name: "Imago Vision", path: "/intelligence/vision" },
-      { name: "Imago Playground", path: "/intelligence/playground" },
+      { name: "Intelligence Chat", path: "/intelligence/chat" },
+      { name: "Intelligence Community", path: "/intelligence/community" },
+      { name: "Intelligence Vision", path: "/intelligence/vision" },
+      { name: "Intelligence Playground", path: "/intelligence/playground" },
     ],
   },
   {

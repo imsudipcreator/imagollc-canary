@@ -84,6 +84,10 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+.theme-intelligence {
+  --background: #f5f5f7;
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -136,10 +140,24 @@
   .flex-center {
     @apply flex items-center justify-center;
   }
+  .flex-col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 * {
   font-family: "SFProDisplay", sans-serif;
+  box-sizing: border-box;
 }
 
 .text-body {

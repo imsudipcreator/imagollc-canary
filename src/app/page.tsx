@@ -29,7 +29,7 @@ export default function Home() {
           {/** Hero Section */}
           <section className="w-full relative h-svh overflow-clip text-black">
             {/* <video src={"/assets/home/hero.webm"} className="w-full md:h-auto h-full object-cover absolute" autoPlay loop muted /> */}
-            <Image src="/assets/home/hero.webp" alt="hero" width={1080} height={720} className="md:w-full h-full object-cover absolute" />
+            <Image src="/assets/home/hero.webp" alt="hero" width={1080} height={720} priority className="md:w-full h-full object-cover absolute" />
             <div className="absolute h-full w-full flex items-center justify-center z-1 gap-1.5">
               <h1 className="font-medium text-beaurivage md:text-6xl text-6xl">Team</h1>
               <ImagoIcon size={25} className="mt-1.5" />
