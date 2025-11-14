@@ -157,6 +157,7 @@
 
 * {
   font-family: "SFProDisplay", sans-serif;
+  box-sizing: border-box;
 }
 
 .text-body {

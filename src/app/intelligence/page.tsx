@@ -1,6 +1,8 @@
-import ImagoSymbol from "@/components/icons/ImagoSymbol"
-import Image from "next/image"
-import Navbar from "./_components/Navbar"
+"use client";
+
+import ImagoSymbol from "@/components/icons/ImagoSymbol";
+import Image from "next/image";
+import Navbar from "./_components/Navbar";
 
 
 const featureCarouselData = [
@@ -129,8 +131,30 @@ const Intelligence = () => {
                     }
                 </div>
             </section>
-            <section className="w-full min-h-screen bg-white">
-
+            <section className="flex md:flex-row flex-col-reverse min-h-screen bg-white items-center justify-center w-full">
+                <div className="md:w-[50%] w-full h-full overflow-hidden not-md:mt-8 flex items-end justify-end">
+                    <Image src={'/assets/intelligence/vision-mockup.png'} alt="hero-intelligence" width={1080} height={750} className="object-cover w-[80%] h-auto mt-14" />
+                </div>
+                <div className="md:w-[50%] w-[92%] h-full flex flex-col items-start md:gap-3 gap-1 px-2">
+                    <p
+                        style={{
+                            background: "linear-gradient(90deg, rgba(38,138,249,1) 0%, rgba(213,79,190,1) 29%, rgba(255,55,76,1) 62%, rgba(255,135,12,1) 100%)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                        }}
+                        className="font-semibold text-2xl py-2 text-center"
+                    >
+                        Vision Intelligence
+                    </p>
+                    <h3 className="md:text-5xl text-3xl font-semibold">
+                        Let your intelligence
+                        <br />
+                        take it all in.
+                    </h3>
+                    <p className="md:w-[70%] text-lg pt-2">
+                        Learn more about what’s in front of you, whether you’re out and about or using your iPhone. Instantly turn a poster into a Calendar event. Summarise what you’re viewing. Ask questions, like recipe ideas for what’s in your fridge. And search seamlessly across your favourite apps, like finding where to buy a cool outfit you see online.5
+                    </p>
+                </div>
             </section>
         </div>
     )
